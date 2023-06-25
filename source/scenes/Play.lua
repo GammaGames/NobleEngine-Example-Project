@@ -4,8 +4,6 @@ local gfx <const> = Graphics
 Play = {}
 class("Play").extends(BaseScene)
 
-Noble.showFPS = true
-
 local items
 local itemTimer
 local player
@@ -52,6 +50,7 @@ end
 function Play:start()
     Play.super.start(self)
 
+	Noble.showFPS = true
 	Signal:add("collected", self, function(_, _, value)
 		local key = tostring(value)
 		if items[key] == nil then
@@ -81,6 +80,7 @@ end
 function Play:exit()
     Play.super.exit(self)
 
+	Noble.showFPS = false
 	itemTimer:remove()
 	Signal:remove("collected")
 	printTable(items)
