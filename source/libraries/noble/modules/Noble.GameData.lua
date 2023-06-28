@@ -95,7 +95,6 @@ function Noble.GameData.setup(__keyValuePairs, __numberOfSlots, __saveToDisk, __
 
 	local createdNewData = false
 
-	print("# SLOTS", numberOfSlots)
 	-- Noble Engine checks on disk for GameDatas, including ones that were
 	-- added with addSlot, but it assumes your game will have no greater than 1000 of them.
 	for i = 1, 1000, 1 do

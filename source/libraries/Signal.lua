@@ -6,8 +6,6 @@ import "CoreLibs/object"
 
 class("Signal").extends()
 
-print("IMPORTING SIGNAL")
-
 function Signal:init()
 	self.listeners = {}
 end

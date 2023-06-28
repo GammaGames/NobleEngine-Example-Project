@@ -37,7 +37,7 @@ Title.inputHandler = {
 function Title:init()
 	Title.super.init(self)
 
-	Noble.Text.setFont(Noble.Text.FONT_NEWSLEAK)  -- Menus use the Noble font
+    Noble.Text.setFont(Noble.Text.FONT_NEWSLEAK) -- Menus use the Noble font
     menu = Noble.Menu.new(
         true,  -- Activate
         Noble.Text.ALIGN_CENTER,
@@ -46,7 +46,7 @@ function Title:init()
         4, 6  -- Adjust padding
     )
     menu:addItem("Play", function() Noble.transition(Play) end)
-    menu:addItem("View", function() Noble.transition(View) end)
+    menu:addItem("Stats", function() Noble.transition(Stats) end)
     menu:select("Play")
 
 	playerSlot = tonumber(Noble.Settings.get("playerSlot"))
@@ -69,11 +69,10 @@ function Title:enter()
 	self:addSprite(logo)
 end
 
-
 -- This runs once per frame.
 function Title:update()
 	Title.super.update(self)
-	-- Your code here
+    -- Your code here
     menu:draw(200, 160)
 end
 

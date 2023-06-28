@@ -594,7 +594,7 @@ function tree:computeTabIndex(id)
   end
 
   walk(self.root)
-  
+
   table.sort(tabIndex, function(a, b)
     return a.properties.tabIndex < b.properties.tabIndex
   end)

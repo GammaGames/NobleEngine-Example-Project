@@ -45,6 +45,37 @@ local buttonHover = {
     font = Noble.Text.FONT_NEWSLEAK_BOLD,
 }
 
+function notify(_text, callback)
+    local tree = playout.tree.new(
+        box({
+            direction = playout.kDirectionVertical,
+            spacing = 4,
+            style = window,
+        }, {
+            text(_text, labelText),
+            box({ style = button, tabIndex = 1 }, { text("Okay") }),
+        })
+    )
+    tree:computeTabIndex()
+    local nodes = tree.tabIndex
+
+    local selectedIndex = 1
+    nodes[selectedIndex].style = buttonHover
+
+    pd.inputHandlers.push({
+        AButtonDown = function()
+            pd.inputHandlers.pop()
+            callback()
+        end,
+        BButtonDown = function()
+            pd.inputHandlers.pop()
+            callback()
+        end,
+    }, true)
+
+    return tree:asSprite()
+end
+
 function confirm(_text, callback)
     local tree = playout.tree.new(
         box({

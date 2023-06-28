@@ -1,6 +1,8 @@
+import "CoreLibs/easing"
 import "CoreLibs/object"
 import "CoreLibs/sprites"
 import "CoreLibs/timer"
+import "CoreLibs/ui"
 
 import "libraries/noble/Noble"
 import "libraries/AnimatedSprite"
@@ -17,7 +19,7 @@ import "scripts/Item"
 import "scenes/BaseScene"
 import "scenes/Title"
 import "scenes/Play"
-import "scenes/View"
+import "scenes/Stats"
 
 Noble.Text.FONT_NEWSLEAK = Graphics.font.new("assets/fonts/Newsleak Serif/Newsleak-Serif")
 Noble.Text.FONT_NEWSLEAK_BOLD = Graphics.font.new("assets/fonts/Newsleak Serif/Newsleak-Serif-Bold")

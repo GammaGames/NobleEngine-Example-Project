@@ -1,13 +1,13 @@
 local pd <const> = playdate
 local gfx <const> = Graphics
 
-local icons_it = gfx.imagetable.new("assets/images/kenney-icons")
-
 Item = {}
 class("Item").extends(NobleSprite)
 
+local icons_it = gfx.imagetable.new("assets/images/kenney-icons")
+
 function Item:init(x, y)
-    self.it_index = math.random(1, #icons_it)
+    self.it_index = math.random(2, #icons_it)  -- Skip item 1 because it is blank
     Item.super.init(self, icons_it:getImage(self.it_index))
 
     self.y_velocity = math.random(1, 2)

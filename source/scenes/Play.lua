@@ -9,6 +9,8 @@ local itemTimer
 local player
 local playerSlot
 local ground = gfx.image.new("/assets/images/ground")
+local tree = gfx.image.new("/assets/images/tree")
+local grass = gfx.image.new("/assets/images/grass")
 
 Play.inputHandler = {
 	leftButtonDown = function()
@@ -41,6 +43,28 @@ end
 function Play:enter()
     Play.super.enter(self)
 
+	local tree_sprite = gfx.sprite.new(tree)
+	tree_sprite:setCenter(0.5, 1)  -- This sets the anchor to the bottom center
+	tree_sprite:moveTo(144, 104)
+	self:addSprite(tree_sprite)
+
+	local bush_sprite = gfx.sprite.new(tree)  -- This sprite is centered at 0.5, 0.5
+	bush_sprite:moveTo(32, 100)
+	self:addSprite(bush_sprite)
+
+	local grass1 = gfx.sprite.new(grass)
+	grass1:setCenter(0.5, 1)
+	grass1:moveTo(50, 105)
+	self:addSprite(grass1)
+	local grass2 = gfx.sprite.new(grass)
+	grass2:setCenter(0.5, 1)
+	grass2:moveTo(130, 105)
+	self:addSprite(grass2)
+
+	local ground_sprite = gfx.sprite.new(ground)
+	ground_sprite:setCenter(0.5, 0)  -- This sets the anchor to the top center
+	ground_sprite:moveTo(100, 104)
+	self:addSprite(ground_sprite)
 	self:addSprite(player)
 	player:setState("idle")
 	playdate.display.setScale(2)
@@ -65,16 +89,20 @@ function Play:start()
 end
 
 -- This runs once per frame.
-function Play:update()
-	Play.super.update(self)
-	-- Your code here
-end
+-- function Play:update()
+-- 	Play.super.update(self)
+-- 	-- Your code here
+-- end
 
-function Play:drawBackground()
-	Play.super.drawBackground(self)
-    -- Your code here
-    ground:draw(4, 104)
-end
+-- function Play:drawBackground()
+-- 	Play.super.drawBackground(self)
+--     -- Your code here
+-- 	tree:draw(24, 80)
+-- 	tree:draw(146, 74)
+-- 	grass:draw(56, 89, gfx.kImageFlippedX)
+-- 	grass:draw(156, 89)
+--  ground:draw(4, 104)
+-- end
 
 -- This runs as as soon as a transition to another scene begins.
 function Play:exit()
@@ -83,7 +111,6 @@ function Play:exit()
 	Noble.showFPS = false
 	itemTimer:remove()
 	Signal:remove("collected")
-	printTable(items)
 	Noble.GameData.set("items", items, playerSlot)
 end
 
@@ -94,6 +121,7 @@ function Play:finish()
 	playdate.display.setScale(1)
 end
 
+-- TODO Show number of items collected
 function Play:pause()
     Play.super.pause(self)
     -- Your code here
