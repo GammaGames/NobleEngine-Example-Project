@@ -4,12 +4,14 @@ local gfx <const> = Graphics
 Title = {}
 class("Title").extends(BaseScene)
 
+-- This can be initialized at boot
 local logo = gfx.sprite.new(gfx.image.new("/assets/images/logo"))
 logo:moveTo(200, 90)
 local playerSlot
 local menu
 local crankTick = 0
 
+-- Add menu controls to the scene's input handler
 Title.inputHandler = {
 	upButtonDown = function()
 		menu:selectPrevious()
@@ -19,10 +21,10 @@ Title.inputHandler = {
 	end,
 	cranked = function(change, _)
 		crankTick = crankTick + change
-		if (crankTick > 30) then
+		if crankTick > 30 then
 			crankTick = 0
 			menu:selectNext()
-	elseif (crankTick < -30) then
+		elseif crankTick < -30 then
 			crankTick = 0
 			menu:selectPrevious()
 		end
@@ -49,6 +51,7 @@ function Title:init()
     menu:addItem("Stats", function() Noble.transition(Stats) end)
     menu:select("Play")
 
+	-- Add menu item to change the save slot
 	playerSlot = tonumber(Noble.Settings.get("playerSlot"))
     self.menu:addOptionsMenuItem(
         "Save",
@@ -71,13 +74,7 @@ end
 
 -- This runs once per frame.
 function Title:update()
-	Title.super.update(self)
-    -- Your code here
-    menu:draw(200, 160)
-end
+    Title.super.update(self)
 
--- This runs once a transition to another scene completes.
-function Title:finish()
-	Title.super.finish(self)
-	-- Your code here
+    menu:draw(200, 160)
 end
