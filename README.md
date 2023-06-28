@@ -16,3 +16,7 @@ Libraries included are:
 * I've created a [base scene](source/scenes/BaseScene.lua) with a some default behavior that makes it easier to interact with the system menu
 * The [play scene](source/scenes/Play.lua) uses sprites for the world, and most of the input is handled by the [Player](source/scripts/Player.lua) class
 * The [stats scene](source/scenes/Stats.lua) draws the grid in the background so it always shows up behind sprites
+* Noble branded assets are taken/modified from the [project template](https://github.com/NobleRobot/NobleEngine-ProjectTemplate)
+* Other image assets are from [Kenney](https://www.kenney.nl):
+  * [1-Bit Pack](https://kenney.nl/assets/1-bit-pack)
+  * [1-Bit Platformer Pack](https://kenney.nl/assets/1-bit-platformer-pack)
