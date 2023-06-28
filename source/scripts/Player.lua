@@ -4,6 +4,9 @@ local gfx <const> = Graphics
 Player = {}
 class("Player").extends(AnimatedSprite)
 
+local particles = ParticleCircle(0, 0)
+particles:setSpread(0, 90)
+
 function Player:init(x, y, playerSlot)
     Player.super.init(self, gfx.imagetable.new("/assets/images/character"))
     self:remove() -- AnimatedSprite adds itself to the scene, we want to do that through Noble
@@ -31,9 +34,13 @@ function Player:update()
     if pd.buttonIsPressed(pd.kButtonLeft) then
         self.x_velocity = -1 * self.movement_speed
         self:changeState("left")
+        particles:moveTo(self.x, self.y + 8)
+        particles:add(1)
     elseif pd.buttonIsPressed(pd.kButtonRight) then
         self.x_velocity = 1 * self.movement_speed
         self:changeState("right")
+        particles:moveTo(self.x, self.y + 8)
+        particles:add(1)
     else
         self.x_velocity = 0
         self:changeState("idle")

@@ -30,14 +30,15 @@ Noble.Text.FONT_NEWSLEAK_FAMILY = Graphics.font.newFamily({
 })
 
 Noble.Settings.setup({
-    playerSlot = 1
+    playerSlot = 1  -- Save which player slot is active
 })
 Noble.GameData.setup({
-    items = {}
-}, 4)
+    items = {}  -- An empty array to store the player's collected items
+}, 4)  -- Allow 4 save slots (because there are 4 skins)
 Noble.GameData.saveAll()
 
-COLLISION_LAYERS = enum({
+--
+COLLISION_LAYERS = enum({  -- Used for collision
     "PLAYER",
     "ITEM",
 })
