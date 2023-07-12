@@ -7,10 +7,10 @@ class("Stats").extends(BaseScene)
 local items
 local grid
 local modal
-local locked_image = gfx.image.new("/assets/images/locked")
-local heart_image = gfx.image.new("/assets/images/heart")
-local icons_it = gfx.imagetable.new("/assets/images/kenney-icons")
-local columns, rows = icons_it:getSize()
+local locked_image <const> = gfx.image.new("/assets/images/locked")
+local heart_image <const> = gfx.image.new("/assets/images/heart")
+local icons_it <const> = gfx.imagetable.new("/assets/images/kenney-icons")
+local columns <const>, rows <const> = icons_it:getSize()
 local modal_animator = gfx.animator.new(
     500,
     Geometry.lineSegment.new(

@@ -8,9 +8,9 @@ local items
 local itemTimer
 local player
 local playerSlot
-local ground = gfx.image.new("/assets/images/ground")
-local tree = gfx.image.new("/assets/images/tree")
-local grass = gfx.image.new("/assets/images/grass")
+local ground <const> = gfx.image.new("/assets/images/ground")
+local tree <const> = gfx.image.new("/assets/images/tree")
+local grass <const> = gfx.image.new("/assets/images/grass")
 local collected = 0
 
 -- Input is mostly handled by the player

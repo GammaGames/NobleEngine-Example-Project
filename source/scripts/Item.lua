@@ -4,7 +4,7 @@ local gfx <const> = Graphics
 Item = {}
 class("Item").extends(NobleSprite)
 
-local icons_it = gfx.imagetable.new("assets/images/kenney-icons")
+local icons_it <const> = gfx.imagetable.new("assets/images/kenney-icons")
 
 function Item:init(x, y)
     self.it_index = math.random(2, #icons_it)  -- Skip item 1 because it is blank

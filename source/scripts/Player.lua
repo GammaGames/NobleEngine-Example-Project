@@ -4,11 +4,12 @@ local gfx <const> = Graphics
 Player = {}
 class("Player").extends(AnimatedSprite)
 
+local player_it <const> = gfx.imagetable.new("/assets/images/character")
 local particles = ParticleCircle(0, 0)
 particles:setSpread(0, 90)
 
 function Player:init(x, y, playerSlot)
-    Player.super.init(self, gfx.imagetable.new("/assets/images/character"))
+    Player.super.init(self, player_it)
     self:remove() -- AnimatedSprite adds itself to the scene, we want to do that through Noble
 
     local skinOffset = (playerSlot - 1) * 7

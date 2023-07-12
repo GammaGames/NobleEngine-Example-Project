@@ -5,7 +5,8 @@ Title = {}
 class("Title").extends(BaseScene)
 
 -- This can be initialized at boot
-local logo = gfx.sprite.new(gfx.image.new("/assets/images/logo"))
+local logo_image <const> = gfx.image.new("/assets/images/logo")
+local logo <const> = gfx.sprite.new(logo_image)
 logo:moveTo(200, 90)
 local playerSlot
 local menu
