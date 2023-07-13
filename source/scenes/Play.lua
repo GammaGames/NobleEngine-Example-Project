@@ -63,8 +63,7 @@ function Play:enter()
 	playdate.display.setScale(2)  -- Set the screen scale so the 16x16 pixels are bigger
 end
 
--- Helper function to collect items, used for adding and removing callbacks to Signal
-local function collectItem(_, _, value)
+function Play:collectItem(_, value)
 	collected += 1
 	local key = tostring(value)  -- Convert to string so the items work like a dictionary and not an array
 	if items[key] == nil then
@@ -78,7 +77,7 @@ function Play:start()
     Play.super.start(self)
 
 	Noble.showFPS = true
-	Signal:add("collected", self, collectItem)  -- Add our callback when an item is collected
+	Signal:add("collected", self, self.collectItem)  -- Add our callback when an item is collected
 	itemTimer = Timer.new(1000, function()  -- Once a second, spawn an item at a random position
 		Item(math.random(10, 190), -10)
     end)
@@ -91,7 +90,7 @@ function Play:exit()
 
 	Noble.showFPS = false
 	itemTimer:remove()
-	Signal:remove("collected", collectItem)
+	Signal:remove("collected", self.collectItem)
 	Noble.GameData.set("items", items, playerSlot)  -- Save the player's collected items
 end
 
