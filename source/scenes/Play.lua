@@ -28,7 +28,6 @@ function Play:init()
 	playerSlot = tonumber(Noble.Settings.get("playerSlot"))
 	items = Noble.GameData.get("items", playerSlot)
 	player = Player(100, 96, playerSlot)
-    self.menu:addMenuItem("menu", function() Noble.transition(Title) end)
 end
 
 function Play:enter()
@@ -76,6 +75,7 @@ end
 function Play:start()
     Play.super.start(self)
 
+    self.menu:addMenuItem("menu", function() Noble.transition(Title) end)
 	Noble.showFPS = true
 	Signal:add("collected", self, self.collectItem)  -- Add our callback when an item is collected
 	itemTimer = Timer.new(1000, function()  -- Once a second, spawn an item at a random position

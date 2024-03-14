@@ -51,6 +51,18 @@ function Title:init()
     menu:addItem("Play", function() Noble.transition(Play) end)
     menu:addItem("Stats", function() Noble.transition(Stats) end)
     menu:select("Play")
+end
+
+-- When transitioning from another scene, this runs as soon as this
+-- scene needs to be visible (this moment depends on which transition type is used).
+function Title:enter()
+    Title.super.enter(self)
+
+	self:addSprite(logo)
+end
+
+function Title:start()
+	Title.super.start(self)
 
 	-- Add menu item to change the save slot
 	playerSlot = tonumber(Noble.Settings.get("playerSlot"))
@@ -63,14 +75,6 @@ function Title:init()
 			Noble.GameData.save(tonumber(value))
 		end
 	)
-end
-
--- When transitioning from another scene, this runs as soon as this
--- scene needs to be visible (this moment depends on which transition type is used).
-function Title:enter()
-    Title.super.enter(self)
-
-	self:addSprite(logo)
 end
 
 -- This runs once per frame.

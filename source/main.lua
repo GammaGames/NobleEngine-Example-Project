@@ -45,4 +45,4 @@ COLLISION_LAYERS = enum({  -- Used for collision
 
 -- In the future alwaysRedraw will default to false,
 --     but for now we need to set it or it will draw every frame
-Noble.new(Title, nil, nil, {alwaysRedraw=false})
+Noble.new(Title, 1, nil, nil, {alwaysRedraw=false})

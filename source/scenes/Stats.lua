@@ -144,6 +144,10 @@ function Stats:init()
             image:draw(x + 8, y + 8)
         end
     end
+end
+
+function Stats:start()
+    Stats.super.start(self)
     self.menu:addMenuItem("menu", function() Noble.transition(Title) end)
 end
 
@@ -156,8 +160,12 @@ function Stats:update()
     if grid.needsDisplay then  -- If the grid changed, redraw background
         gfx.sprite.redrawBackground()
     end
-    if modal ~= nil and not modal_animator:ended() then  -- Animate the modal
-        modal:moveTo(modal_animator:currentValue())
+    if modal ~= nil then
+        if modal_animator:ended() then  -- Animate the modal
+            gfx.sprite.redrawBackground()
+        else
+            modal:moveTo(modal_animator:currentValue())
+        end
     end
 end
 
