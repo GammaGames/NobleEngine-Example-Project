@@ -39,8 +39,6 @@ luac.out
 *.x86_64
 *.hex
 
-.vscode
-
 builds/
 
 source/libraries/noble/docs/

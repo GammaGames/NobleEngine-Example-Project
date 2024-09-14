@@ -1,0 +1,131 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "rm",
+            "args": [
+                "${workspaceFolder}/builds/*",
+                "-Rf"
+            ],
+            "presentation": {
+                "showReuseMessage": false,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "${config:PLAYDATE_SDK_PATH}/bin/pdc",
+            // "incrementBuildNumber": true,
+            "args": [
+                "-sdkpath",
+                "${config:PLAYDATE_SDK_PATH}",
+                "${workspaceFolder}/source",
+                "${workspaceFolder}/builds/${workspaceFolderBasename}.pdx"
+            ],
+            "options": {
+                "cwd": "${config:PLAYDATE_SDK_PATH}"
+            },
+            "presentation": {
+                "showReuseMessage": false,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Zip",
+            "type": "shell",
+            "command": "zip",
+            "args": [
+                "-r",
+                "${workspaceFolderBasename}.pdx.zip",
+                "${workspaceFolderBasename}.pdx/*"
+            ],
+            "presentation": {
+                "showReuseMessage": false,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}/builds"
+            }
+        },
+        {
+            "label": "Kill",
+            "type": "shell",
+            "command": "pkill",
+            "args": [
+                "-1",
+                "PlaydateSimula",
+                "||",
+                "true"
+            ],
+            "presentation": {
+                "showReuseMessage": false,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run (Simulator)",
+            "type": "shell",
+            "command": "${config:PLAYDATE_SDK_PATH}/bin/PlaydateSimulator",
+            "args": [
+                "'${workspaceFolder}/builds/${workspaceFolderBasename}.pdx'"
+            ],
+            "presentation": {
+                "showReuseMessage": false,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build and Run (Simulator)",
+            "dependsOn": [
+                "Kill",
+                "Clean",
+                "Build",
+                "Zip",
+                "Run (Simulator)"
+            ],
+            "dependsOrder": "sequence",
+            "presentation": {
+                "showReuseMessage": false,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Test (Simulator)",
+            "dependsOn": [
+                "Run (Simulator)"
+            ],
+            "dependsOrder": "sequence",
+            "presentation": {
+                "showReuseMessage": false,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ]
+}

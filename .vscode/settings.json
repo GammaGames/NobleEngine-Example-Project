@@ -1,0 +1,40 @@
+{
+    "Lua.runtime.version": "Lua 5.4",
+    "Lua.diagnostics.globals": [
+        "playdate",
+        "json",
+        "Noble",
+        "Graphics",
+        "File",
+        "printTable"
+    ],
+    "Lua.runtime.special": {
+        "import": "require"
+    },
+    "Lua.completion.requireSeparator": "/",
+    "Lua.diagnostics.libraryFiles": "Disable",
+    "Lua.runtime.nonstandardSymbol": [
+        "+=",
+        "-=",
+        "*=",
+        "/=",
+        "//=",
+        "%=",
+        "<<=",
+        ">>=",
+        "&=",
+        "|=",
+        "^="
+    ],
+    "Lua.workspace.library": [
+        "$PLAYDATE_SDK_PATH",
+        "playdate-type-annotations"
+    ],
+    "Lua.workspace.ignoreDir": [
+        ".vscode",
+        "Examples"
+    ],
+    "Lua.workspace.preloadFileSize": 10240,
+    "PATH":"$PATH:~/Desktop/PlaydateSDK-2.4.2/bin",
+    "PLAYDATE_SDK_PATH": "~/Desktop/PlaydateSDK-2.4.2"
+}
