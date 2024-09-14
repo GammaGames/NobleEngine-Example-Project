@@ -13,7 +13,7 @@
             ],
             "presentation": {
                 "showReuseMessage": false,
-                "reveal": "always",
+                "reveal": "never",
                 "panel": "shared"
             },
             "problemMatcher": []
@@ -42,15 +42,16 @@
         {
             "label": "Zip",
             "type": "shell",
+            "isBackground": true,
             "command": "zip",
             "args": [
                 "-r",
                 "${workspaceFolderBasename}.pdx.zip",
-                "${workspaceFolderBasename}.pdx/*"
+                "${workspaceFolderBasename}.pdx/*",
             ],
             "presentation": {
                 "showReuseMessage": false,
-                "reveal": "always",
+                "reveal": "never",
                 "panel": "shared"
             },
             "problemMatcher": [],
@@ -70,7 +71,7 @@
             ],
             "presentation": {
                 "showReuseMessage": false,
-                "reveal": "always",
+                "reveal": "never",
                 "panel": "shared"
             },
             "problemMatcher": []
@@ -96,12 +97,11 @@
                 "Clean",
                 "Build",
                 "Zip",
-                "Run (Simulator)"
+                "Run (Simulator)",
             ],
             "dependsOrder": "sequence",
             "presentation": {
                 "showReuseMessage": false,
-                "reveal": "always",
                 "panel": "shared"
             },
             "problemMatcher": [],
