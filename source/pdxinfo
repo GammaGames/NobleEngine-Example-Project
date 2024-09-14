@@ -1,8 +1,8 @@
-name=NobleEngine Example Project
+name=Noble Engine Example
 author=GammaGames
-description=A short example game using Noble Engine
-bundleID=com.mit.NobleEngineExample
+description=A small example game using Noble Engine
+bundleID=com.noble.example
 version=0.0.1
-buildNumber=1
-imagePath=assets/launcher/
+buildNumber=3
+imagePath=assets/launch
 launchSoundPath=assets/launcher/sound.wav
