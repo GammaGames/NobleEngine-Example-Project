@@ -25,9 +25,4 @@ Libraries included are:
 * Other image assets are from [Kenney](https://www.kenney.nl):
   * [1-Bit Pack](https://kenney.nl/assets/1-bit-pack)
   * [1-Bit Platformer Pack](https://kenney.nl/assets/1-bit-platformer-pack)
-* I've also included my [`.vscode`](.vscode) settings, it has a build task that:
-  1. Kills the simulator (if running)
-  2. Cleans the build directory
-  3. Bulids the project
-  4. Zips the build directory
-  5. Starts the simulator
+* I've also included my [`.vscode`](.vscode) settings, it has a build task that kills the simulator (if running), cleans the build directory, builds the project, zips the build directory, and starts the simulator. It uses the path for the sdk from the [`settings.json`](.vscode/settings.json) file, so you'll need to update that to your own path.
