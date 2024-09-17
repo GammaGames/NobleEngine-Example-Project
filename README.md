@@ -1,6 +1,6 @@
 # Noble Engine Example Project
 
-This is a documented example project that shows how to use the Noble Engine, along with a handful of libraries.
+This is a documented example project that shows how to use the [Noble Engine](https://github.com/NobleRobot/NobleEngine), along with a handful of libraries.
 
 ![demo](demo.gif)
 
